@@ -18,9 +18,9 @@ export default function HeaderAuth() {
         <NavLink href ='/upload'>Upload a pdf</NavLink>
         <UserButton />
       </SignedIn>
-      <SignedOut>
+      {/* <SignedOut> */}
         <Link href="/sign-in" className="font-medium hover:underline">Sign in</Link>
-      </SignedOut>
+      {/* </SignedOut> */}
     </>
   );
 }

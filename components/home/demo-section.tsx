@@ -10,45 +10,126 @@ const DemoSection = () => {
 
   const demoContent = [
     {
-      title: "Quick Overview",
-      icon: (
-        <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
-      ),
-      description:
-        "Comprehensive Next.js 15 course covering everything from fundamentals to advanced deployment strategies.",
-    },
-    {
-      title: "Key Concepts",
-      icon: (
-        <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
-      ),
-      description:
-        "Explore core Next.js concepts like server-side rendering, static site generation, and API routes.",
-    },
-    {
-      title: "Project Setup",
-      icon: (
-        <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
-      ),
-      description:
-        "Learn to set up your Next.js development environment and structure your projects effectively.",
-    },
-    {
-      title: "Data Fetching",
-      icon: (
-        <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
-      ),
-      description:
-        "Master various data fetching strategies including getServerSideProps, getStaticProps, and client-side fetching.",
-    },
-    {
-      title: "Deployment",
-      icon: (
-        <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
-      ),
-      description:
-        "Deploy your Next.js applications to Vercel and other platforms with confidence.",
-    },
+  title: "Quick Overview",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Get a comprehensive introduction to Next.js 15, the latest version of the leading React framework. This course covers everything from the core fundamentals—such as routing, rendering, and project structure—to advanced topics like server actions, middleware, and deployment strategies. Whether you're new to Next.js or looking to master its newest features, this overview will set the stage for your learning journey with clear explanations, practical examples, and real-world project guidance.", 
+  },
+{
+  title: "Key Concepts",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Dive deep into essential Next.js concepts, including server-side rendering (SSR), static site generation (SSG), client-side rendering, and incremental static regeneration (ISR). Understand how API routes work, how to leverage dynamic and nested routing, and how Next.js handles data fetching and caching. This module ensures you have a solid grasp of the architectural patterns that power modern web applications.",
+},
+{
+  title: "Project Setup",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Learn step-by-step how to set up a Next.js 15 project from scratch. Explore the recommended folder structure, TypeScript integration, environment variable management, and configuration best practices. You'll also discover how to install and configure essential dependencies, set up linting and formatting tools, and prepare your project for scalable development in both solo and team environments.",
+},
+{
+  title: "Data Fetching",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Master all data fetching strategies in Next.js 15, including getServerSideProps, getStaticProps, and client-side fetching with SWR or React Query. Learn when to use each approach for optimal performance, SEO, and user experience. This section also covers advanced patterns like server actions, edge functions, and integrating with external APIs or databases for dynamic, data-driven applications.",
+},
+{
+  title: "Deployment",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Gain confidence in deploying your Next.js applications to production. Explore deployment workflows for Vercel (the creators of Next.js), as well as alternative hosting solutions like AWS, Netlify, and Docker. Learn about environment variables, secrets management, continuous integration (CI/CD), and best practices for monitoring, scaling, and securing your application after launch.",
+},
+{
+  title: "Advanced Routing & Navigation",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Explore advanced routing features such as dynamic segments, catch-all routes, nested and parallel routing, and intercepting routes for modals and overlays. Understand how to manage navigation state, implement route groups for cleaner organization, and enhance SEO with dynamic metadata.",
+},
+{
+  title: "Server & Client Components",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Learn the difference between server and client components in Next.js 15. Discover how to fetch data securely on the server, add interactivity with client components, and combine both for optimal performance and user experience.",
+},
+{
+  title: "Forms & User Input",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Work with the new <Form> component and server actions to build robust, accessible forms. Handle validation, error states, and progressive enhancement for seamless user input experiences.",
+},
+{
+  title: "Authentication & Authorization",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Integrate authentication providers like Clerk, Auth0, or NextAuth.js. Protect routes, manage user sessions, and implement role-based access control for secure, personalized applications.",
+},
+{
+  title: "Performance Optimization",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Optimize your Next.js apps with Turbopack, incremental compilation, advanced caching, and image optimization. Learn strategies for faster builds, improved SEO, and better user experience.",
+},
+{
+  title: "API Routes & Middleware",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Build backend endpoints directly in your Next.js app using API routes. Use edge middleware for authentication, redirects, and custom request handling at the edge for lower latency.",
+},
+{
+  title: "Testing & Debugging",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Leverage improved error overlays, stack traces, and built-in ESLint support for a smoother development experience. Write tests for your components and API routes to ensure reliability.",
+},
+{
+  title: "TypeScript & Configuration",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Use TypeScript throughout your app for type safety and maintainability. Configure your project with next.config.ts and learn best practices for environment variables, aliases, and custom setups.",
+},
+{
+  title: "Image & Asset Optimization",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Automatically optimize images with the Next.js Image component. Manage static assets for fast loading and responsive design across devices.",
+},
+{
+  title: "Real-World Projects & Best Practices",
+  icon: (
+    <CircleDotDashed className="flex-shrink-0 w-5 h-5 text-rose-500 mt-1" />
+  ),
+  description:
+    "Apply everything you've learned by building fullstack, production-ready projects. Discover best practices for state management, accessibility, CI/CD, and scaling your Next.js applications.",
+}
+
   ];
 
   const handleNext = () => {
