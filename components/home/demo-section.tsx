@@ -1,7 +1,7 @@
 "use client";
 import { ChevronLeft, ChevronRight, CircleDotDashed } from "lucide-react";
 import React, { useState } from "react";
-import { Motion3 } from "../common/motion-wrapper";
+
 import { AnimatePresence, motion, Variants } from "motion/react";
 
 const DemoSection = () => {
@@ -295,11 +295,10 @@ const DemoSection = () => {
               {demoContent.map((_, i) => (
                 <motion.div
                   key={i}
-                  className={`h-2 rounded-full ${
-                    i === activeIndex
+                  className={`h-2 rounded-full ${i === activeIndex
                       ? "w-1/4 bg-rose-500"
                       : "w-1/6 bg-rose-100"
-                  }`}
+                    }`}
                   variants={progressVariants}
                   animate={i === activeIndex ? "active" : "inactive"}
                   layout
@@ -372,9 +371,8 @@ const DemoSection = () => {
                   <motion.button
                     key={i}
                     onClick={() => setActiveIndex(i)}
-                    className={`w-2 h-2 rounded-full ${
-                      i === activeIndex ? "bg-rose-500" : "bg-rose-200"
-                    }`}
+                    className={`w-2 h-2 rounded-full ${i === activeIndex ? "bg-rose-500" : "bg-rose-200"
+                      }`}
                     whileHover={{ scale: 1.5 }}
                     whileTap={{ scale: 0.8 }}
                     animate={{

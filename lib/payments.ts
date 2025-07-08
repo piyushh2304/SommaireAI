@@ -72,7 +72,7 @@ async function createPayment({
   userEmail: string;
 }) {
   try {
-    const { amount_total, id, customer_email, status } = session;
+    const { amount_total, id, status } = session;
 
     await sql`
       INSERT INTO payments

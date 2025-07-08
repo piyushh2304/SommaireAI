@@ -1,10 +1,11 @@
 import { SUMMARY_SYSTEM_PROMPT } from "@/utils/prompts";
 import OpenAI from "openai";
+
 const client = new OpenAI({
   apiKey: process.env.OPEN_API_KEY,
 });
 
-export async function generateSummaryFromOpenAI(pdftext: string) {
+export async function generateSummaryFromOpenAI(pdftext: string): Promise<string> {
   try {
     const completion = await client.chat.completions.create({
       model: "gpt-4o",
@@ -21,13 +22,18 @@ export async function generateSummaryFromOpenAI(pdftext: string) {
       temperature: 0.7,
       max_tokens: 1500,
     });
-    return completion.choices[0].message.content;
-  } catch (err) {
+    const content = completion.choices[0].message.content;
+    if (content === null) {
+      throw new Error("OpenAI response content is null");
+    }
+    return content;
+  } catch (err: unknown) {
     if (
       typeof err === "object" &&
       err !== null &&
       "status" in err &&
-      (err as any).status === 429
+      typeof (err as { status: unknown }).status === "number" &&
+      (err as { status: number }).status === 429
     ) {
       throw new Error("RATE_LIMIT_EXCEEDED");
     }

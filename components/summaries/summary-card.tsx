@@ -4,7 +4,6 @@ import DeleteButton from "./delete-button";
 import { FileText } from "lucide-react";
 import { cn, formatFileName } from "@/lib/utils";
 import { formatDistanceToNow } from "date-fns";
-import TimeAgo from "../common/TimeAgo";
 
 const SummaryHeader = ({
   fileUrl,

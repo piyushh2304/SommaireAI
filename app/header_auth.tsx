@@ -2,7 +2,7 @@
 "use client";
 import NavLink from "@/components/common/nav-link";
 
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function HeaderAuth() {
@@ -17,11 +17,11 @@ export default function HeaderAuth() {
         <NavLink href="/upload">Upload a pdf</NavLink>
         <UserButton />
       </SignedIn>
-      {/* <SignedOut> */}
+
       <Link href="/sign-in" className="font-medium hover:underline">
         Sign in
       </Link>
-      {/* </SignedOut> */}
+
     </>
   );
 }

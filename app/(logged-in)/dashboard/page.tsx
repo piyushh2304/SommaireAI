@@ -2,7 +2,6 @@ import BgGradient from "@/components/common/bg-gradient";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import SummaryCard from "@/components/summaries/summary-card";
 import { getSummaries } from "@/lib/summaries";
 import { currentUser } from "@clerk/nextjs/server";

@@ -2,7 +2,6 @@ import BgGradient from "@/components/common/bg-gradient";
 import {
   MotionDiv,
   Motion1,
-  MotionP,
 } from "@/components/common/motion-wrapper";
 import { Skeleton } from "@/components/ui/skeleton";
 import { itemVariants } from "@/utils/constants";

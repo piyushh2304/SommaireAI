@@ -4,7 +4,7 @@ import { Motion2, Motion3, MotionDiv } from "../common/motion-wrapper";
 
 type Step = {
   icon: ReactNode;
-  label: String;
+  label: string;
   description: string;
 };
 
