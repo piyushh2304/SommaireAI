@@ -1,4 +1,4 @@
-import { SignUp } from "@clerk/nextjs"
+import { SignUp } from "@clerk/nextjs";
 
 export default function SignUpPage() {
   return (
@@ -6,7 +6,9 @@ export default function SignUpPage() {
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900">Get started</h2>
-          <p className="mt-2 text-gray-600">Create your account to start summarizing PDFs</p>
+          <p className="mt-2 text-gray-600">
+            Create your account to start summarizing PDFs
+          </p>
         </div>
         <SignUp
           appearance={{
@@ -16,12 +18,13 @@ export default function SignUpPage() {
               headerTitle: "text-rose-600",
               headerSubtitle: "text-gray-600",
               socialButtonsBlockButton: "border-gray-300 hover:bg-gray-50",
-              formFieldInput: "border-gray-300 focus:border-rose-500 focus:ring-rose-500",
+              formFieldInput:
+                "border-gray-300 focus:border-rose-500 focus:ring-rose-500",
               footerActionLink: "text-rose-600 hover:text-rose-500",
             },
           }}
         />
       </div>
     </div>
-  )
+  );
 }

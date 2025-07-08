@@ -19,7 +19,7 @@
 //       <div className="relative flex items-start gap-3">
 //         <span className="text-lg lg:text-xl shrink-0 pt-1">{emoji}</span>
 //         <p
-//           className="text-lg lg:text-xl 
+//           className="text-lg lg:text-xl
 //             text-muted-foreground/90 leading-relaxed"
 //         >
 //           {text}
@@ -44,7 +44,7 @@
 //       />
 
 //       <p
-//         className="relative text-lg lg:text-xl 
+//         className="relative text-lg lg:text-xl
 //                 text-muted-foreground/90 leading-relaxed text-left"
 //       >
 //         {point}
@@ -67,7 +67,7 @@
 //     initial="hidden"
 //     animate="visible"
 //     exit="exit"
-    
+
 //      className="space-y-4">
 //       {points.map((point, index) => {
 //         const { isMainPoint, hasEmoji, isEmpty } = parsePoint(point);

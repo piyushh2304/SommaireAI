@@ -41,11 +41,16 @@
 // };
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-export async function generateSummaryFromGemini(text: string, maxRetries = 3): Promise<string> {
+export async function generateSummaryFromGemini(
+  text: string,
+  maxRetries = 3,
+): Promise<string> {
   const apiKey = process.env.GEMINI_API_KEY;
 
   if (!apiKey) {
-    throw new Error("Missing Gemini API key - please set GEMINI_API_KEY environment variable");
+    throw new Error(
+      "Missing Gemini API key - please set GEMINI_API_KEY environment variable",
+    );
   }
 
   let retries = 0;
@@ -85,12 +90,16 @@ export async function generateSummaryFromGemini(text: string, maxRetries = 3): P
       // Check if it's a rate limit error (429)
       if (error.status === 429) {
         // Extract retry delay from error if available, or use exponential backoff
-        const retryDelay = error.errorDetails?.[0]?.["@type"]?.includes("RetryInfo")
-          ? parseInt(error.errorDetails[0].retryDelay.replace('s', '')) * 1000
+        const retryDelay = error.errorDetails?.[0]?.["@type"]?.includes(
+          "RetryInfo",
+        )
+          ? parseInt(error.errorDetails[0].retryDelay.replace("s", "")) * 1000
           : Math.pow(2, retries) * 1000;
 
-        console.log(`Rate limit exceeded. Retrying in ${retryDelay / 1000} seconds...`);
-        await new Promise(resolve => setTimeout(resolve, retryDelay));
+        console.log(
+          `Rate limit exceeded. Retrying in ${retryDelay / 1000} seconds...`,
+        );
+        await new Promise((resolve) => setTimeout(resolve, retryDelay));
         retries++;
       } else {
         // For other errors, don't retry

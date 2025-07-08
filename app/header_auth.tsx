@@ -8,18 +8,19 @@ import Link from "next/link";
 export default function HeaderAuth() {
   return (
     <>
-        
-    <div className="flex lg:justify-center gap-4 lg:gap-12 lg:items-center">
-           <SignedIn>
-            <NavLink href="/dashboard">Your Summaries</NavLink>
-            </SignedIn>
-          </div>
+      <div className="flex lg:justify-center gap-4 lg:gap-12 lg:items-center">
+        <SignedIn>
+          <NavLink href="/dashboard">Your Summaries</NavLink>
+        </SignedIn>
+      </div>
       <SignedIn>
-        <NavLink href ='/upload'>Upload a pdf</NavLink>
+        <NavLink href="/upload">Upload a pdf</NavLink>
         <UserButton />
       </SignedIn>
       {/* <SignedOut> */}
-        <Link href="/sign-in" className="font-medium hover:underline">Sign in</Link>
+      <Link href="/sign-in" className="font-medium hover:underline">
+        Sign in
+      </Link>
       {/* </SignedOut> */}
     </>
   );

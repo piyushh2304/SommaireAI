@@ -8,7 +8,7 @@ import { containerVariants, itemVariants } from "@/utils/constants";
 const buttonVariants = {
   scale: 1.05,
   transition: {
-    type: 'spring',
+    type: "spring" as const,
     stiffness: 300,
     damping: 10,
   }
@@ -16,9 +16,9 @@ const buttonVariants = {
 
 export default function HeroSection() {
   return (
-    <MotionSection 
-      variants={containerVariants} 
-      initial='hidden' 
+    <MotionSection
+      variants={containerVariants}
+      initial='hidden'
       animate='visible'
       className="relative mx-auto flex flex-col z-0
         items-center justify-center py-16 sm:py-20 lg:pb-28
@@ -40,15 +40,15 @@ export default function HeroSection() {
           <p className="text-base text-rose-600">Powered by AI</p>
         </Badge>
       </MotionDiv>
-      
-      <Motion1 
+
+      <Motion1
         variants={itemVariants}
         className="font-bold py-6 text-center"
       >
         Transform PDFs into{" "}
         <MotionSpan
-         whileHover={buttonVariants} 
-         className="relative inline-block">
+          whileHover={buttonVariants}
+          className="relative inline-block">
           <span className="relative z-10 px-2">concise</span>
           <span
             className="absolute inset-0 bg-rose-200/50 
@@ -58,7 +58,7 @@ export default function HeroSection() {
         </MotionSpan>{" "}
         summaries
       </Motion1>
-      
+
       <Motion2
         variants={itemVariants}
         className="text-lg sm:text-xl lg:text-2xl text-center
@@ -66,7 +66,7 @@ export default function HeroSection() {
       >
         Get a beautiful summary reel of the document in seconds.
       </Motion2>
-      
+
       <MotionDiv variants={itemVariants} whileHover={buttonVariants}>
         <Button
           variant={"link"}

@@ -11,14 +11,13 @@ const SectionTitle = ({ title }: { title: string }) => {
     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
       {title}
     </h2>
-     
   );
 };
 
-export function SummaryViewer({ 
-  summary = "", 
-  onSlideChange 
-}: { 
+export function SummaryViewer({
+  summary = "",
+  onSlideChange,
+}: {
   summary?: string;
   onSlideChange?: {
     onNext: () => void;
@@ -30,7 +29,7 @@ export function SummaryViewer({
   const [currentSection, setCurrentSection] = useState(0);
 
   const sections = useMemo(() => {
-    if (!summary || typeof summary !== 'string') {
+    if (!summary || typeof summary !== "string") {
       return [];
     }
 
@@ -41,7 +40,7 @@ export function SummaryViewer({
         .filter(Boolean)
         .map(parseSection);
     } catch (error) {
-      console.error('Error parsing summary:', error);
+      console.error("Error parsing summary:", error);
       return [];
     }
   }, [summary]);
@@ -49,7 +48,10 @@ export function SummaryViewer({
   const handleNext = () => {
     if (currentSection < sections.length - 1) {
       setCurrentSection((prev) => prev + 1);
-    } else if (onSlideChange && onSlideChange.currentSlide < onSlideChange.totalSlides - 1) {
+    } else if (
+      onSlideChange &&
+      onSlideChange.currentSlide < onSlideChange.totalSlides - 1
+    ) {
       onSlideChange.onNext();
       setCurrentSection(0);
     }
@@ -87,7 +89,7 @@ export function SummaryViewer({
         <div className="px-4 sm:px-6">
           <SectionTitle title={sections[currentSection]?.title || ""} />
           <ContentSection
-            title={sections[currentSection]?.title || ''}
+            title={sections[currentSection]?.title || ""}
             points={sections[currentSection]?.points || []}
           />
         </div>

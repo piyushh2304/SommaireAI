@@ -28,7 +28,7 @@ export default function ProgressBar({
                   ? "w-full"
                   : currentSection > index
                     ? "w-full opacity-10"
-                    : "w-0"
+                    : "w-0",
               )}
             />
           </div>

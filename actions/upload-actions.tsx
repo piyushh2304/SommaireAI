@@ -47,7 +47,7 @@ export async function generatePdfText({ fileUrl }: GeneratePdfTextParams) {
       data: null,
     };
   }
- 
+
   try {
     const pdfText = await fetchAndExtractPdfText(fileUrl);
     if (!pdfText) {
@@ -78,13 +78,12 @@ export async function generatePdfSummary({ pdfText, fileName }: GeneratePdfSumma
     let summary;
     try {
       summary = await generateSummaryFromOpenAI(pdfText);
-    } catch (error: any) {
-      if (error && error.message === "RATE_LIMIT_EXCEEDED") {
+    } catch (error: unknown) {
+      if (error instanceof Error && error.message === "RATE_LIMIT_EXCEEDED") {
         try {
           summary = await generateSummaryFromGemini(pdfText);
         } catch (geminiError) {
-          console.error("Gemini API Error", geminiError);
-          throw Error("Failed to generate summary with availabe AI Provider");
+          throw Error("Failed to generate summary with available AI Provider");
         }
       }
     }
@@ -143,7 +142,7 @@ export async function storePdfSummaryAction({
   title,
   fileName,
   key,
-} : StorePdfSummaryParams) {
+}: StorePdfSummaryParams) {
   let saveSummary;
   try {
     const { userId } = await auth();

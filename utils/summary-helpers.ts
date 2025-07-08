@@ -1,9 +1,9 @@
 export const parseSection = (
-  section: string
+  section: string,
 ): { title: string; points: string[] } => {
   // Add safety check
-  if (!section || typeof section !== 'string') {
-    return { title: '', points: [] };
+  if (!section || typeof section !== "string") {
+    return { title: "", points: [] };
   }
 
   const [title, ...content] = section.split("\n");
@@ -32,7 +32,8 @@ export const parseSection = (
   return {
     title: cleanTitle,
     points: points.filter(
-      (point) => point && !point.startsWith("#") && !point.startsWith("[Choose")
+      (point) =>
+        point && !point.startsWith("#") && !point.startsWith("[Choose"),
     ),
   };
 };
