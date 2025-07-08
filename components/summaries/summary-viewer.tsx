@@ -1,6 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
-import { Card } from "../ui/card";
+import { Card } from "@/components/ui/card";
 import { NavigationControls } from "./navigation-controls";
 import ProgressBar from "./progress-bar";
 import { parseSection } from "@/utils/summary-helpers";

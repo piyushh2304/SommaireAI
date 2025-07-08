@@ -78,8 +78,8 @@ export async function generatePdfSummary({ pdfText, fileName }: GeneratePdfSumma
     let summary;
     try {
       summary = await generateSummaryFromOpenAI(pdfText);
-    } catch (error) {
-      if (error && error?.message === "RATE_LIMIT_EXCEEDED") {
+    } catch (error: any) {
+      if (error && error.message === "RATE_LIMIT_EXCEEDED") {
         try {
           summary = await generateSummaryFromGemini(pdfText);
         } catch (geminiError) {
@@ -172,7 +172,7 @@ export async function storePdfSummaryAction({
   } catch (err) {
     return {
       success: false,
-      message: err ? err.message : "Failed to store summary",
+      message: err instanceof Error ? err.message : "Failed to store summary",
       data: null,
     };
   }

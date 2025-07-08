@@ -23,7 +23,7 @@ export async function generateSummaryFromOpenAI(pdftext: string) {
     });
     return completion.choices[0].message.content;
   } catch (err) {
-    if (err?.status === 429) {
+    if (typeof err === 'object' && err !== null && 'status' in err && (err as any).status === 429) {
       throw new Error('RATE_LIMIT_EXCEEDED');
     }
     throw err;
