@@ -10,6 +10,7 @@ import EmptySummaryState from "@/components/summaries/empty-summary-state";
 import { Motion1 } from "@/components/common/motion-wrapper";
 import { itemVariants } from "@/utils/constants";
 import { MotionP, MotionDiv } from "@/components/common/motion-wrapper";
+import { Summary } from "@/typings/Summary"; // Import your Summary type
 
 export default async function DashboardPage() {
   const user = await currentUser();
@@ -18,8 +19,8 @@ export default async function DashboardPage() {
     return redirect("/sign-in");
   }
 
-  // const uploadLimit = 50;
-  const summary = await getSummaries(userId);
+  const summaries: Summary[] = await getSummaries(userId);
+
   return (
     <main className="min-h-screen">
       <BgGradient className="from-emerald-200 via-teal-200 to-cyan-200" />
@@ -36,7 +37,6 @@ export default async function DashboardPage() {
               >
                 Your Summaries
               </Motion1>
-
               <MotionP
                 variants={itemVariants}
                 initial="hidden"
@@ -65,13 +65,12 @@ export default async function DashboardPage() {
               </Button>
             </MotionDiv>
           </div>
-
-          {summary.length === 0 ? (
+          {summaries.length === 0 ? (
             <EmptySummaryState />
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 sm:px-0">
-              {summary.map((summary, index) => (
-                <SummaryCard key={index} summary={summary} />
+              {summaries.map((summary) => (
+                <SummaryCard key={summary.id} summary={summary} />
               ))}
             </div>
           )}
