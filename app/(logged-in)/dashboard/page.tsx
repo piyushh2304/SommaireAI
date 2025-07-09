@@ -18,8 +18,16 @@ export default async function DashboardPage() {
     return redirect("/sign-in");
   }
 
-  // const uploadLimit = 50;
-  const summary = await getSummaries(userId);
+  // Inline type assertion for summary array
+  const summary = await getSummaries(userId) as {
+    id: string;
+    original_file_url: string;
+    title: string;
+    created_at: string;
+    // Add other required fields if needed
+    [key: string]: any;
+  }[];
+
   return (
     <main className="min-h-screen">
       <BgGradient className="from-emerald-200 via-teal-200 to-cyan-200" />
@@ -36,7 +44,6 @@ export default async function DashboardPage() {
               >
                 Your Summaries
               </Motion1>
-
               <MotionP
                 variants={itemVariants}
                 initial="hidden"
@@ -65,13 +72,12 @@ export default async function DashboardPage() {
               </Button>
             </MotionDiv>
           </div>
-
           {summary.length === 0 ? (
             <EmptySummaryState />
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 sm:px-0">
-              {summary.map((summary, index) => (
-                <SummaryCard key={index} summary={summary} />
+              {summary.map((summary) => (
+                <SummaryCard key={summary.id} summary={summary} />
               ))}
             </div>
           )}
