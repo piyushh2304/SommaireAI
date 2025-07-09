@@ -7,6 +7,7 @@ import {
 import { ArrowRight, CheckIcon } from "lucide-react";
 import Link from "next/link";
 import { MotionDiv, MotionSection } from "../common/motion-wrapper";
+import type { Variants } from "framer-motion"; // <-- Add this import
 
 type PriceType = {
   name: string;
@@ -18,7 +19,8 @@ type PriceType = {
   priceId: string;
 };
 
-const listVariant = {
+// Explicitly type the variant as Variants
+const listVariant: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: {
     opacity: 1,
