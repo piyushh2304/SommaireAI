@@ -28,14 +28,16 @@ export async function generateSummaryFromOpenAI(pdftext: string): Promise<string
     }
     return content;
   } catch (err: unknown) {
+    // Type guard: ensure err is an object with a status property
     if (
       typeof err === "object" &&
       err !== null &&
-      "status" in err &&
-      typeof (err as { status: unknown }).status === "number" &&
-      (err as { status: number }).status === 429
+      "status" in err
     ) {
-      throw new Error("RATE_LIMIT_EXCEEDED");
+      const errorWithStatus = err as { status?: number };
+      if (errorWithStatus.status === 429) {
+        throw new Error("RATE_LIMIT_EXCEEDED");
+      }
     }
     throw err;
   }
