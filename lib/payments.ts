@@ -1,6 +1,5 @@
 import Stripe from "stripe";
 import { getDbConnection } from "./db";
-import type { Sql } from "postgres"; // Adjust this import based on your SQL client
 
 export async function handleCheckoutSessionCompleted({
   session,
@@ -43,7 +42,7 @@ async function createOrUpdateUser({
   priceId,
   status,
 }: {
-  sql: Sql<any>; // Use Sql<{}> or Sql<Record<string, unknown>> if you want to avoid any
+  sql: any;
   email: string;
   fullName: string;
   customerId: string;
@@ -67,7 +66,7 @@ async function createPayment({
   priceId,
   userEmail,
 }: {
-  sql: Sql<any>; // Use Sql<{}> or Sql<Record<string, unknown>> if you want to avoid any
+  sql: any;
   session: Stripe.Checkout.Session;
   priceId: string;
   userEmail: string;
