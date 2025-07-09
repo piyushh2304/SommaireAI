@@ -8,13 +8,7 @@ const __dirname = dirname(__filename);
 const compat = new FlatCompat({ baseDirectory: __dirname });
 
 export default [
-  ...compat.extends(
-    "next/core-web-vitals",
-    "next/typescript"
-  ),
-  {
-    rules: {
-      "react/no-escaped-entities": "off",
-    },
-  },
+   ...compat.config({
+    extends: ['next/core-web-vitals', 'next/typescript'],
+  }),
 ];
