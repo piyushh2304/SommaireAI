@@ -20,19 +20,8 @@ export async function generateSummaryFromGemini(
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-      const prompt = {
-        contents: [
-          {
-            parts: [
-              {
-                text: `Please summarize the following text in a concise manner, highlighting the key points and main ideas:
-                
-                ${text}`,
-              },
-            ],
-          },
-        ],
-      };
+      // Pass the prompt as a string, not as an object with contents/parts
+      const prompt = `Please summarize the following text in a concise manner, highlighting the key points and main ideas:\n\n${text}`;
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
