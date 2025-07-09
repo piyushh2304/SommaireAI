@@ -20,12 +20,13 @@ export default async function DashboardPage() {
 
   // Inline type assertion for summary array
   const summary = await getSummaries(userId) as {
-    id: string;
-    original_file_url: string;
-    title: string;
-    created_at: string;
-    // Add other required fields if needed
-    [key: string]: any;
+ id: string;
+  original_file_url: string;
+  title: string;
+  created_at: string;
+  summary_text: string;
+  status: string;
+  [key: string]: any;
   }[];
 
   return (
